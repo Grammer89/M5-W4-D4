@@ -12,8 +12,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject _secretZone2;
     [SerializeField] GameObject _winUI;
 
-    [SerializeField]  private int _numberButtonMax = 4;
-    [SerializeField]  private int _numberButtonPressed;
+    private int _numberButtonMax = 4;
+    private int _numberButtonPressed;
+    public bool _levelCompleted;
     private NavMeshSurface _naveMeshSurface;
     public int NumberButtonPressed
     {
@@ -75,7 +76,7 @@ public class LevelManager : MonoBehaviour
         while (true)
         {
             yield return wfs;
-            if(_numberButtonMax == _numberButtonPressed)
+            if(_levelCompleted)
             {
                 Time.timeScale = 1;
                 _winUI.SetActive(true);
