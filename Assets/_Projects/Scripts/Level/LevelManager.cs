@@ -43,13 +43,7 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(CheckWin());
     }
     // Update is called once per frame
-    void Update()
-    {
-        if (_numberButtonMax == _numberButtonPressed)
-        {
-            _teleport.SetActive(true);
-        }
-    }
+  
 
     public void ActivateSecretZone(int numberDoor)
     {
@@ -76,10 +70,9 @@ public class LevelManager : MonoBehaviour
         while (true)
         {
             yield return wfs;
-            if(_levelCompleted)
+            if(_numberButtonMax == _numberButtonPressed)
             {
-                Time.timeScale = 1;
-                _winUI.SetActive(true);
+                _teleport.SetActive(true);
             }
         }
       

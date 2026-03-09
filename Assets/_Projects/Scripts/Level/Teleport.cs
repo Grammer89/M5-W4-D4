@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
+    [SerializeField] GameObject _winUI;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            LevelManager.Instance._levelCompleted = true;
+            Time.timeScale = 0;
+            _winUI.SetActive(true);
         }
     }
 }
